@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Unidad1_moviles</string>
-    <string name="title_login" >Mi app</string>
+    <string name="title_splash" >Mi app</string>
+    <string name="title_txt_usu">Usuario</string>
+    <string name="title_txt_Con">Contraseña</string>
+    <string name="title_btn_ini">Inicio de sesión</string>
+    <string name="title_btn_Reg">Registrarse</string>
+    <string name="title_login">Inicio de sesión</string>
+    <string name="title_Pantalla_prin">Pantalla Principal</string>
 </resources>

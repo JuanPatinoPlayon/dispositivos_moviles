@@ -12,7 +12,7 @@
         android:id="@+id/tvBienvenido"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pantalla principal"
+        android:text="@string/title_Pantalla_prin"
         android:textSize="22sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"/>
