@@ -12,9 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Unidad1_moviles" >
         <activity
+            android:name=".gestionActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Unidad1_moviles" />
+        <activity
+            android:name=".Gestion_UsuActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Unidad1_moviles" />
+        <activity
             android:name=".RegistroActivity"
-            android:exported="false" />
-        <!-- LoginActivity sin intent-filter, solo registrado -->
+            android:exported="false" /> <!-- LoginActivity sin intent-filter, solo registrado -->
         <activity
             android:name=".LoginActivity"
             android:exported="false" /> <!-- SplashActivity es la pantalla inicial -->
@@ -32,11 +39,18 @@
             android:name=".MainActivity"
             android:exported="false" />
 
-        <meta-data android:name="DATABASE" android:value="sugar_example.db" />
-        <meta-data android:name="VERSION" android:value="1" />
-        <meta-data android:name="QUERY_LOG" android:value="TRUE" />
-        <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example" />
-
+        <meta-data
+            android:name="DATABASE"
+            android:value="sugar_example.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="TRUE" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.example" />
     </application>
 
 </manifest>
