@@ -30,18 +30,11 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String usuario = etUsuario.getText().toString();
                 String contrasena = etContrasena.getText().toString();
+                String usuario = etUsuario.getText().toString();
 
-                if(usuario.equals("admin") && contrasena.equals("1234")){
-                    Toast.makeText(LoginActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
 
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Toast.makeText(LoginActivity.this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
-                }
+                Usuario usu = new Usuario(contrasena, usuario);
             }
         });
 
