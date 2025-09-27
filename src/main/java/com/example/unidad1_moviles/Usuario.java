@@ -4,11 +4,11 @@ import com.orm.SugarRecord;
 
 public class Usuario extends SugarRecord {
 
-    private String nombre;
+    private String usuario;
     private String contraseña;
 
-    public Usuario(String contraseña, String nombre) {
-        this.nombre = nombre;
+    public Usuario(String usuario,String contraseña) {
+        this.usuario = usuario;
         this.contraseña = contraseña;
     }
 
@@ -23,15 +23,12 @@ public class Usuario extends SugarRecord {
         this.contraseña = contraseña;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
-
-
-
 }
 

@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         lvUsuarios = findViewById(R.id.lvUsuarios);
 
         // Si pasamos el nombre desde LoginActivity
-        String nombreUsuario = getIntent().getStringExtra("nombreUsuario");
-        if(nombreUsuario != null){
-            tvBienvenida.setText("Bienvenido, " + nombreUsuario);
+        String usuarioLogueado = getIntent().getStringExtra("nombreUsuario");
+        if(usuarioLogueado != null){
+            tvBienvenida.setText("Bienvenido, " + usuarioLogueado);
         }
 
         listarUsuarios();
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         usuarios = Usuario.listAll(Usuario.class);
         nombresUsuarios = new ArrayList<>();
         for (Usuario u : usuarios) {
-            nombresUsuarios.add(u.getNombre());
+            nombresUsuarios.add(u.getUsuario()); // CORRECCIÓN
         }
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nombresUsuarios);
         lvUsuarios.setAdapter(adapter);
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
         CharSequence[] opciones = {"Editar", "Eliminar"};
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(usuario.getNombre());
+        builder.setTitle(usuario.getUsuario()); // CORRECCIÓN
         builder.setItems(opciones, (dialog, which) -> {
             if (which == 0) {
                 mostrarDialogoEditar(usuario);
@@ -81,13 +81,13 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Editar Usuario");
 
         EditText input = new EditText(this);
-        input.setText(usuario.getNombre());
+        input.setText(usuario.getUsuario()); // CORRECCIÓN
         builder.setView(input);
 
         builder.setPositiveButton("Guardar", (dialog, which) -> {
-            String nuevoNombre = input.getText().toString().trim();
-            if(!nuevoNombre.isEmpty()){
-                usuario.setNombre(nuevoNombre);
+            String nuevoUsuario = input.getText().toString().trim();
+            if(!nuevoUsuario.isEmpty()){
+                usuario.setUsuario(nuevoUsuario); // CORRECCIÓN
                 usuario.save();
                 Toast.makeText(MainActivity.this, "Usuario actualizado", Toast.LENGTH_SHORT).show();
                 listarUsuarios();
@@ -100,43 +100,19 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    // Métodos del ciclo de vida correctamente indentados
+    // Métodos del ciclo de vida
     @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d("CICLO_VIDA", "MainActivity - onStart");
-    }
-
+    protected void onStart() { super.onStart(); Log.d("CICLO_VIDA", "MainActivity - onStart"); }
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d("CICLO_VIDA", "MainActivity - onResume");
-    }
-
+    protected void onResume() { super.onResume(); Log.d("CICLO_VIDA", "MainActivity - onResume"); }
     @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d("CICLO_VIDA", "MainActivity - onPause");
-    }
-
+    protected void onPause() { super.onPause(); Log.d("CICLO_VIDA", "MainActivity - onPause"); }
     @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("CICLO_VIDA", "MainActivity - onStop");
-    }
-
+    protected void onStop() { super.onStop(); Log.d("CICLO_VIDA", "MainActivity - onStop"); }
     @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d("CICLO_VIDA", "MainActivity - onRestart");
-    }
-
+    protected void onRestart() { super.onRestart(); Log.d("CICLO_VIDA", "MainActivity - onRestart"); }
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d("CICLO_VIDA", "MainActivity - onDestroy");
-    }
+    protected void onDestroy() { super.onDestroy(); Log.d("CICLO_VIDA", "MainActivity - onDestroy"); }
 }
-
 
 

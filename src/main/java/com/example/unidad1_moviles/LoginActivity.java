@@ -8,8 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import java.util.List;
-
 import androidx.appcompat.app.AppCompatActivity;
+
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,11 +22,14 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+         if(Usuario.listAll(Usuario.class).isEmpty()) {
+             Usuario admin = new Usuario("admin", "1234"); // nombre y contraseña por defecto
+             admin.save();
+         }
         etUsuario = findViewById(R.id.etUsuario);
         etContrasena = findViewById(R.id.etContrasena);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegistro = findViewById(R.id.btnRegistro);
-
 
 
 
@@ -36,12 +40,15 @@ public class LoginActivity extends AppCompatActivity {
                 String contrasena = etContrasena.getText().toString().trim();
 
 
+
+
                 if (usuario.isEmpty() || contrasena.isEmpty()) {
                     Toast.makeText(LoginActivity.this, "Por favor complete todos los campos", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                List<Usuario> usuarios = Usuario.find(Usuario.class, "nombre = ? AND contraseña = ?", usuario, contrasena);
+                List<Usuario> usuarios = Usuario.find(Usuario.class, "usuario = ? AND contraseña = ?", usuario, contrasena);
+
 
                 if (usuarios.size() > 0) {
 

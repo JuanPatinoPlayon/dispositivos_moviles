@@ -23,11 +23,14 @@ public class RegistroActivity extends AppCompatActivity {
         etContrasenaRegistro = findViewById(R.id.etContrasenaRegistro);
         btnRegistrar = findViewById(R.id.btnRegistrar);
 
+
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String usuario = etUsuarioRegistro.getText().toString().trim();
                 String contrasena = etContrasenaRegistro.getText().toString().trim();
+
+
 
                 // Validar campos vacíos
                 if (usuario.isEmpty() || contrasena.isEmpty()) {
