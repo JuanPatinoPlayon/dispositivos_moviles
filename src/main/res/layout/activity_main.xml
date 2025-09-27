@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:background="@android:color/white"
-    android:padding="24dp">
+    android:padding="16dp">
 
-    <!-- Este es el TextView que debe existir -->
     <TextView
-        android:id="@+id/tvBienvenido"
+        android:id="@+id/tvBienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_Pantalla_prin"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"/>
+        android:text="Bienvenido"
+        android:textSize="24sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <ListView
+        android:id="@+id/lvUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </LinearLayout>
