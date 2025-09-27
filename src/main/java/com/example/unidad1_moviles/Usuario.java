@@ -8,8 +8,8 @@ public class Usuario extends SugarRecord {
     private String contraseña;
 
     public Usuario(String contraseña, String nombre) {
-        this.contraseña = contraseña;
         this.nombre = nombre;
+        this.contraseña = contraseña;
     }
 
     public Usuario() {
